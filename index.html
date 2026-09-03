@@ -1,0 +1,1365 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>최인규 - Unreal Engine Programmer Resume</title>
+  <style>
+    :root {
+      --bg: #eef3f4;
+      --paper: #ffffff;
+      --ink: #18232e;
+      --subtle: #5d6b78;
+      --line: #d7e0e4;
+      --soft: #f6f9fa;
+      --accent: #007782;
+      --accent-dark: #07505a;
+      --warm: #b8653b;
+      --warm-soft: #fff3ec;
+      --shadow: 0 20px 60px rgba(20, 38, 48, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "Pretendard", "Segoe UI", "Malgun Gothic", AppleGothic, sans-serif;
+      font-size: 15px;
+      line-height: 1.68;
+      letter-spacing: 0;
+    }
+
+    .resume {
+      width: min(1120px, calc(100% - 32px));
+      margin: 32px auto;
+      background: var(--paper);
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(215, 224, 228, 0.8);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 300px;
+      gap: 36px;
+      padding: 44px 48px 38px;
+      color: #fff;
+      background:
+        linear-gradient(135deg, rgba(0, 77, 85, 0.96), rgba(24, 35, 46, 0.96)),
+        repeating-linear-gradient(90deg, rgba(255,255,255,0.07) 0, rgba(255,255,255,0.07) 1px, transparent 1px, transparent 18px);
+    }
+
+    .eyebrow {
+      margin: 0 0 10px;
+      color: rgba(255,255,255,0.72);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 42px;
+      line-height: 1.12;
+      letter-spacing: 0;
+    }
+
+    .role {
+      margin: 10px 0 18px;
+      color: #d8f2f4;
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    .intro {
+      max-width: 720px;
+      margin: 0;
+      color: rgba(255,255,255,0.86);
+      font-size: 16px;
+    }
+
+    .contact {
+      align-self: start;
+      padding: 22px;
+      border: 1px solid rgba(255,255,255,0.18);
+      background: rgba(255,255,255,0.08);
+      border-radius: 8px;
+    }
+
+    .contact h2,
+    .section h2 {
+      margin: 0 0 14px;
+      font-size: 15px;
+      line-height: 1.3;
+      letter-spacing: 0;
+    }
+
+    .contact dl {
+      display: grid;
+      grid-template-columns: 76px 1fr;
+      gap: 8px 12px;
+      margin: 0;
+      color: rgba(255,255,255,0.9);
+      font-size: 14px;
+    }
+
+    .contact dt {
+      color: rgba(255,255,255,0.6);
+      font-weight: 700;
+    }
+
+    .contact dd {
+      margin: 0;
+      overflow-wrap: anywhere;
+    }
+
+    .highlight-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border-bottom: 1px solid var(--line);
+      background: #fbfdfd;
+    }
+
+    .metric {
+      min-height: 104px;
+      padding: 22px 26px;
+      border-right: 1px solid var(--line);
+    }
+
+    .metric:last-child {
+      border-right: 0;
+    }
+
+    .metric strong {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--accent-dark);
+      font-size: 24px;
+      line-height: 1.1;
+    }
+
+    .metric span {
+      color: var(--subtle);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .content {
+      display: block;
+      padding: 42px 48px 52px;
+    }
+
+    .section + .section {
+      margin-top: 38px;
+    }
+
+    h2 {
+      color: var(--accent-dark);
+      font-size: 18px;
+    }
+
+    h3 {
+      margin: 0 0 5px;
+      color: var(--ink);
+      font-size: 18px;
+      line-height: 1.35;
+      letter-spacing: 0;
+    }
+
+    .lead {
+      margin: 0;
+      color: var(--subtle);
+      font-size: 15px;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .tag-list li {
+      padding: 5px 9px;
+      border: 1px solid #cfe1e4;
+      border-radius: 6px;
+      background: #f5fbfc;
+      color: var(--accent-dark);
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 1.3;
+    }
+
+    .skill-group + .skill-group {
+      margin-top: 18px;
+    }
+
+    .stack-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px 24px;
+    }
+
+    .stack-grid .skill-group + .skill-group {
+      margin-top: 0;
+    }
+
+    .skill-title {
+      margin: 0 0 8px;
+      color: var(--ink);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .plain-list {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--subtle);
+    }
+
+    .plain-list li + li {
+      margin-top: 6px;
+    }
+
+    .capability-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .capability {
+      padding: 16px 18px;
+      border: 1px solid var(--line);
+      border-left: 4px solid var(--accent);
+      border-radius: 8px;
+      background: var(--soft);
+    }
+
+    .capability h3 {
+      margin-bottom: 7px;
+      font-size: 15px;
+    }
+
+    .capability p {
+      margin: 0;
+      color: var(--subtle);
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    .portfolio-list {
+      display: grid;
+      gap: 16px;
+      margin-top: 18px;
+    }
+
+    .portfolio-card {
+      padding: 20px 22px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .portfolio-card-head {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 14px;
+      align-items: start;
+      margin-bottom: 10px;
+    }
+
+    .portfolio-kind {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 7px;
+      color: var(--accent-dark);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .portfolio-card p {
+      margin: 0;
+      color: #4d5a64;
+      font-size: 14px;
+      line-height: 1.65;
+    }
+
+    .portfolio-card ul {
+      margin: 12px 0 0;
+      padding-left: 18px;
+      color: var(--subtle);
+      font-size: 13px;
+    }
+
+    .portfolio-card li + li {
+      margin-top: 5px;
+    }
+
+    .portfolio-media {
+      display: grid;
+      grid-template-columns: minmax(0, 520px);
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .portfolio-video,
+    .portfolio-image {
+      position: relative;
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      padding: 0;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+      background-color: #101719;
+      background-position: center;
+      background-size: cover;
+      color: #fff;
+      cursor: pointer;
+      font: inherit;
+      text-align: left;
+    }
+
+    .portfolio-video::before,
+    .portfolio-image::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(16, 23, 25, 0.02), rgba(16, 23, 25, 0.6));
+    }
+
+    .portfolio-media iframe {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      height: auto;
+      border-radius: 8px;
+      border: 0;
+    }
+
+    .portfolio-image img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .portfolio-label {
+      position: absolute;
+      left: 14px;
+      right: 14px;
+      bottom: 12px;
+      z-index: 1;
+      font-size: 13px;
+      font-weight: 800;
+      text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+    }
+
+    .portfolio-play {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 54px;
+      height: 38px;
+      border-radius: 7px;
+      background: rgba(184, 101, 59, 0.94);
+      transform: translate(-50%, -50%);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
+    }
+
+    .portfolio-play::after {
+      content: "";
+      position: absolute;
+      left: 22px;
+      top: 10px;
+      border-left: 15px solid #fff;
+      border-top: 9px solid transparent;
+      border-bottom: 9px solid transparent;
+    }
+
+    .portfolio-lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 30;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 28px;
+      background: rgba(13, 25, 29, 0.88);
+    }
+
+    .portfolio-lightbox.is-open {
+      display: flex;
+    }
+
+    .portfolio-lightbox img {
+      display: block;
+      max-width: min(1160px, 96vw);
+      max-height: 88vh;
+      border-radius: 8px;
+      background: #fff;
+      box-shadow: 0 24px 80px rgba(0, 0, 0, 0.38);
+    }
+
+    .portfolio-lightbox button {
+      position: absolute;
+      right: 22px;
+      top: 18px;
+      width: 40px;
+      height: 40px;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.12);
+      color: #fff;
+      cursor: pointer;
+      font-size: 24px;
+      line-height: 1;
+    }
+
+    .timeline {
+      position: relative;
+      display: grid;
+      gap: 18px;
+    }
+
+    .job {
+      position: relative;
+      padding: 20px 22px 20px 24px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .job.featured {
+      border-color: rgba(0, 119, 130, 0.34);
+      background: linear-gradient(180deg, #ffffff 0%, #f5fbfc 100%);
+    }
+
+    .job-head {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 18px;
+      align-items: start;
+      margin-bottom: 10px;
+    }
+
+    .company {
+      display: block;
+      color: var(--accent-dark);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .period {
+      padding: 4px 8px;
+      border-radius: 5px;
+      background: var(--warm-soft);
+      color: var(--warm);
+      font-size: 12px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .job ul {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--subtle);
+    }
+
+    .job li + li {
+      margin-top: 5px;
+    }
+
+    .job li strong {
+      color: var(--accent-dark);
+    }
+
+    .summary-box {
+      padding: 20px 22px;
+      border: 1px solid #d9e5e8;
+      border-left: 4px solid var(--warm);
+      border-radius: 8px;
+      background: #fffaf7;
+    }
+
+    .summary-box p {
+      margin: 0;
+      color: #4d5a64;
+    }
+
+    .summary-box p + p {
+      margin-top: 12px;
+    }
+
+    .education {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      color: var(--subtle);
+      font-size: 14px;
+    }
+
+    .education strong {
+      color: var(--ink);
+    }
+
+    .footer-note {
+      margin-top: 32px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+      color: #7b8893;
+      font-size: 12px;
+    }
+
+    @media (max-width: 920px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding: 36px 28px;
+      }
+
+      .content {
+        padding: 34px 28px 42px;
+      }
+
+      .highlight-strip,
+      .capability-grid,
+      .stack-grid,
+      .education,
+      .portfolio-card-head {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .metric:nth-child(2) {
+        border-right: 0;
+      }
+
+      .metric:nth-child(-n + 2) {
+        border-bottom: 1px solid var(--line);
+      }
+    }
+
+    @media (max-width: 620px) {
+      body {
+        font-size: 14px;
+      }
+
+      .resume {
+        width: 100%;
+        margin: 0;
+        border: 0;
+      }
+
+      .hero {
+        padding: 30px 22px;
+      }
+
+      h1 {
+        font-size: 32px;
+      }
+
+      .role {
+        font-size: 18px;
+      }
+
+      .content {
+        padding: 28px 22px 36px;
+      }
+
+      .highlight-strip,
+      .capability-grid,
+      .stack-grid,
+      .education,
+      .job-head,
+      .portfolio-card-head {
+        grid-template-columns: 1fr;
+      }
+
+      .metric {
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .metric:last-child {
+        border-bottom: 0;
+      }
+
+      .period {
+        width: fit-content;
+      }
+
+      .portfolio-media {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @page {
+      size: A4;
+      margin: 8mm;
+    }
+
+    @media print {
+      body {
+        background: #fff;
+        font-size: 11px;
+      }
+
+      .resume {
+        width: auto;
+        margin: 0;
+        border: 0;
+        box-shadow: none;
+      }
+
+      .hero {
+        grid-template-columns: minmax(0, 1fr) 206px;
+        gap: 34px;
+        padding: 30px 34px 34px;
+        background: #12333a;
+      }
+
+      .eyebrow {
+        margin-bottom: 8px;
+        font-size: 10px;
+      }
+
+      h1 {
+        font-size: 30px;
+        line-height: 1.08;
+      }
+
+      .role {
+        margin: 8px 0 16px;
+        font-size: 14px;
+      }
+
+      .intro {
+        font-size: 11.5px;
+        line-height: 1.72;
+      }
+
+      .contact {
+        padding: 13px 14px;
+      }
+
+      .contact dl {
+        grid-template-columns: 52px 1fr;
+        gap: 5px 8px;
+        font-size: 10px;
+      }
+
+      .highlight-strip {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      .metric {
+        min-height: 82px;
+        padding: 16px 18px;
+      }
+
+      .metric strong {
+        font-size: 16px;
+      }
+
+      .metric span {
+        font-size: 10px;
+        line-height: 1.55;
+      }
+
+      .content {
+        display: block;
+        padding: 22px 34px 0;
+      }
+
+      h2 {
+        font-size: 14px;
+      }
+
+      .contact h2,
+      .section h2 {
+        margin-bottom: 10px;
+        font-size: 13px;
+      }
+
+      .lead {
+        font-size: 11px;
+        line-height: 1.55;
+      }
+
+      .tag-list {
+        gap: 5px;
+      }
+
+      .tag-list li {
+        padding: 3px 6px;
+        font-size: 10px;
+      }
+
+      .education {
+        font-size: 11px;
+        line-height: 1.45;
+      }
+
+      .skill-group + .skill-group {
+        margin-top: 8px;
+      }
+
+      article {
+        width: 100%;
+      }
+
+      .section + .section {
+        margin-top: 24px;
+      }
+
+      .capability-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .capability {
+        padding: 11px 12px;
+      }
+
+      .capability h3 {
+        font-size: 12px;
+      }
+
+      .capability p {
+        font-size: 10px;
+        line-height: 1.45;
+      }
+
+      .stack-grid {
+        gap: 10px 16px;
+      }
+
+      .section h2 {
+        break-after: avoid;
+        page-break-after: avoid;
+      }
+
+      .section h2 + * {
+        break-before: avoid;
+        page-break-before: avoid;
+      }
+
+      .job,
+      .capability,
+      .tag-list,
+      .stack-grid,
+      .education,
+      .summary-box {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+
+      .timeline {
+        gap: 13px;
+      }
+
+      .job {
+        padding: 15px 17px 15px 19px;
+      }
+
+      .job-head {
+        gap: 12px;
+        margin-bottom: 8px;
+      }
+
+      .job h3 {
+        font-size: 16px;
+        line-height: 1.28;
+      }
+
+      .company {
+        font-size: 12px;
+      }
+
+      .period {
+        font-size: 11px;
+      }
+
+      .job li + li {
+        margin-top: 3px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="resume">
+    <header class="hero">
+      <div>
+        <p class="eyebrow">Unreal Engine Programmer</p>
+        <h1>최인규</h1>
+        <p class="role">UE5 엔진 · 렌더링 최적화 · 월드 스트리밍 · 빌드/툴링</p>
+        <p class="intro">
+          18년 이상 경력의 게임 클라이언트/엔진 프로그래머입니다. DirectX 자체 엔진과 Unity3D 클라이언트 개발을 거쳐,
+          최근에는 UE5 기반 대규모 프로젝트에서 엔진 버전 업그레이드, 렌더링/성능 프로파일링,
+          월드 스트리밍과 충돌 데이터 파이프라인, 빌드/개발 인프라 업무를 수행했습니다.
+        </p>
+      </div>
+
+      <aside class="contact" aria-label="연락처">
+        <h2>Contact</h2>
+        <dl>
+          <dt>Email</dt>
+          <dd>evilack@naver.com</dd>
+          <dt>Career</dt>
+          <dd>18년+</dd>
+        </dl>
+      </aside>
+    </header>
+
+    <section class="highlight-strip" aria-label="핵심 지표">
+      <div class="metric">
+        <strong>UE5.6 - 5.7.2</strong>
+        <span>엔진 업그레이드와 플러그인 대응</span>
+      </div>
+      <div class="metric">
+        <strong>Win · AOS · iOS · PS</strong>
+        <span>플랫폼 빌드와 디바이스 이슈 대응</span>
+      </div>
+      <div class="metric">
+        <strong>Rendering</strong>
+        <span>쉐이더, Device Profile, PSO 디버깅</span>
+      </div>
+      <div class="metric">
+        <strong>World & Physics</strong>
+        <span>스트리밍, NaviData, Jolt 충돌 파이프라인</span>
+      </div>
+    </section>
+
+    <div class="content">
+      <article>
+        <section class="section">
+          <h2>Engine Focus</h2>
+          <ul class="tag-list">
+            <li>Unreal Engine 4/5</li>
+            <li>Engine Update</li>
+            <li>Device Issue</li>
+            <li>Shader Debugging</li>
+            <li>Rendering Profiling</li>
+            <li>World Partition HLOD</li>
+            <li>Level Streaming</li>
+            <li>JoltPhysics</li>
+            <li>Collision Exporter</li>
+            <li>RenderDoc</li>
+            <li>Zen DDC</li>
+            <li>Horde Build</li>
+            <li>Generative AI R&D</li>
+            <li>Claude/Codex Workflow</li>
+            <li>Convention Guardrails</li>
+            <li>DirectX Engine</li>
+            <li>Scaleform GFX</li>
+            <li>MFC Tooling</li>
+            <li>RVT</li>
+            <li>PSO Build</li>
+            <li>Unreal Patch</li>
+            <li>Jenkins</li>
+            <li>Perforce</li>
+            <li>GitLab</li>
+            <li>Xcode/iOS Build</li>
+            <li>Console Platform</li>
+          </ul>
+        </section>
+
+        <section class="section">
+          <h2>Technical Stack</h2>
+          <div class="stack-grid">
+          <div class="skill-group">
+            <p class="skill-title">Languages</p>
+            <p class="lead">C/C++, C#, Objective-C, Java, Lua, ActionScript 3.0</p>
+          </div>
+          <div class="skill-group">
+            <p class="skill-title">Engines</p>
+            <p class="lead">Unreal Engine 4/5, Unity3D, DirectX 자체 엔진</p>
+          </div>
+          <div class="skill-group">
+            <p class="skill-title">Tools & Platforms</p>
+            <p class="lead">Jenkins, GitLab, Perforce, Xcode, RenderDoc, Zen DDC, Horde, Win32, MFC, FFmpeg, CUDA, Scaleform GFX</p>
+          </div>
+          <div class="skill-group">
+            <p class="skill-title">Target Platforms</p>
+            <p class="lead">Windows, Android, iOS, PlayStation, HoloLens</p>
+          </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2>Education & Certificate</h2>
+          <div class="education">
+            <div><strong>한서대학교</strong><br>컴퓨터정보 전공 졸업</div>
+            <div><strong>정보처리기사</strong><br>한국산업인력공단, 2007.12</div>
+            <div><strong>병역</strong><br>육군 병장 만기 제대</div>
+          </div>
+        </section>
+        <section class="section">
+          <h2>Profile</h2>
+          <p class="lead">
+            클라이언트 콘텐츠 개발 경험을 기반으로 엔진, 플랫폼, 빌드 환경까지 다뤄온 게임 엔진 프로그래머입니다.
+            DirectX 자체 엔진/툴 유지보수부터 Unreal Engine 업그레이드, 렌더링 최적화, 월드 스트리밍, 충돌 데이터,
+            빌드/배포 문제까지 프로젝트 기반을 분석하고 안정화하는 데 강점이 있습니다.
+          </p>
+        </section>
+
+        <section class="section">
+          <h2>Core Capabilities</h2>
+          <div class="capability-grid">
+            <div class="capability">
+              <h3>Engine Maintenance</h3>
+              <p>UE5.6, UE5.6.1, UE5.7, UE5.7.2 엔진 업그레이드, 플러그인 업데이트, 프로젝트 코드 이슈 대응.</p>
+            </div>
+            <div class="capability">
+              <h3>World Streaming</h3>
+              <p>World Partition, 레벨 스트리밍, 서버 범위 로딩, HLOD/Landscape/NaviData 빌드 검증.</p>
+            </div>
+            <div class="capability">
+              <h3>Rendering Debugging</h3>
+              <p>Lumen, SSGI, VSM, Nanite, HLOD, Landscape, Shader, GPU/RenderDoc 프로파일링.</p>
+            </div>
+            <div class="capability">
+              <h3>Physics & Tooling</h3>
+              <p>JoltPhysics 기반 충돌정보 추출/검증, 에디터 유틸리티, Zen DDC, Horde, Jenkins 빌드 환경.</p>
+            </div>
+            <div class="capability">
+              <h3>AI Development R&D</h3>
+              <p>Claude/Codex 기반 UE 바이브 코딩을 위한 XAMir 규약 분석, AI 작업 조건 설계, 프로토타입 검증.</p>
+            </div>
+            <div class="capability">
+              <h3>Legacy Engine & Tools</h3>
+              <p>DirectX 자체 엔진 유지보수, 콘텐츠 툴, Scaleform GFX/ActionScript UI, 플랫폼 연동 경험.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2>Experience</h2>
+          <div class="timeline">
+            <section class="job featured">
+              <div class="job-head">
+                <div>
+                  <span class="company">위메이드 · AMir 프로젝트 / 엔진·프로그램</span>
+                  <h3>UE5 엔진/월드 시스템 및 개발 파이프라인</h3>
+                </div>
+                <span class="period">2025.03 - 2026.06</span>
+              </div>
+              <ul>
+                <li><strong>역할:</strong> UE5 기반 대규모 프로젝트에서 엔진 업그레이드, 렌더링 최적화, 월드 로딩, 충돌 데이터, 빌드 인프라 업무를 담당.</li>
+                <li><strong>핵심 업무:</strong> UE5.6~5.7.2 업그레이드, Lumen/SSGI/VSM/Nanite/HLOD 프로파일링, World Partition 스트리밍, NaviData/HLOD/Landscape 빌드 검증, JoltPhysics 충돌정보 추출/검증 수행.</li>
+                <li><strong>기여:</strong> Zen DDC, Horde, Jenkins, Git 서버, 에디터 유틸리티를 검토·구축하고, XAMir 규약 기반 생성형 AI UE 개발 가드레일과 프로토타입을 제작.</li>
+              </ul>
+            </section>
+
+            <section class="job featured">
+              <div class="job-head">
+                <div>
+                  <span class="company">블랙스톰 · UE5 프로젝트 / 엔진팀</span>
+                  <h3>UE5 엔진/빌드/패치 시스템</h3>
+                </div>
+                <span class="period">2023.07 - 2025.01</span>
+              </div>
+              <ul>
+                <li><strong>역할:</strong> UE5 프로젝트 엔진팀에서 디바이스 이슈, 렌더링 관련 기능, 빌드/패치 파이프라인을 담당.</li>
+                <li><strong>핵심 업무:</strong> WP HLOD, RVT, PSO 빌드, 플랫폼별 패키징과 Unreal Patch System 기반 패치 흐름을 정리.</li>
+                <li><strong>기여:</strong> Windows, Android, iOS 대상 Jenkins 빌드 시스템과 패치 시스템을 구축해 배포 자동화 기반을 마련.</li>
+              </ul>
+            </section>
+
+            <section class="job featured">
+              <div class="job-head">
+                <div>
+                  <span class="company">넷마블넥서스 · 사내 UE5 공용엔진 / 공용엔진팀</span>
+                  <h3>UE5 공용 엔진 및 프로젝트 지원</h3>
+                </div>
+                <span class="period">2021.06 - 2023.05</span>
+              </div>
+              <ul>
+                <li><strong>역할:</strong> UE5 공용엔진팀에서 사내 프로젝트의 엔진 업데이트와 공용 엔진 서포트 업무를 담당.</li>
+                <li><strong>핵심 업무:</strong> 프로젝트별 엔진 버전 업데이트, GitLab/Perforce 기반 소스 관리와 프로젝트 지원 업무를 수행.</li>
+                <li><strong>기여:</strong> 공용 엔진 변경 사항을 프로젝트에 반영하고 빌드/엔진 이슈 대응 흐름을 정리해 개발팀 지원 안정성을 높임.</li>
+              </ul>
+            </section>
+
+            <section class="job featured">
+              <div class="job-head">
+                <div>
+                  <span class="company">넷마블넥서스 · 세븐나이츠2 엔진팀</span>
+                  <h3>UE4 모바일 엔진 유지보수</h3>
+                </div>
+                <span class="period">2021.06 - 2023.05</span>
+              </div>
+              <ul>
+                <li><strong>역할:</strong> 세븐나이츠2 엔진팀에서 모바일 디바이스, 렌더링, 엔진 유지보수 업무를 담당.</li>
+                <li><strong>핵심 업무:</strong> iOS/AOS 디바이스 이슈, Xcode/iOS 빌드 문제, 쉐이더 디버깅, Device Profile 분석을 수행.</li>
+                <li><strong>기여:</strong> 모바일 플랫폼별 엔진 이슈 대응과 Combine Anim Node, Anim Notify 카테고리화 기능 개발로 제작 환경을 개선.</li>
+              </ul>
+            </section>
+
+            <section class="job">
+              <div class="job-head">
+                <div>
+                  <span class="company">NSStudio · 고스트 스쿼드 / 클라이언트</span>
+                  <h3>UE4 FPS 프로토타입 시스템</h3>
+                </div>
+                <span class="period">2020.11 - 2021.05</span>
+              </div>
+              <ul>
+                <li><strong>역할:</strong> UE4 기반 FPS 프로토타입에서 클라이언트 게임플레이와 온라인 접속 흐름을 담당.</li>
+                <li><strong>핵심 업무:</strong> NPC/Item Spawn, Mission, Login, Lobby Online Session 시스템을 개발.</li>
+                <li><strong>기여:</strong> 프로토타입 단계에서 게임플레이 루프와 온라인 세션 구조를 빠르게 검증할 수 있는 기반을 구현.</li>
+              </ul>
+            </section>
+
+            <section class="job">
+              <div class="job-head">
+                <div>
+                  <span class="company">한빛소프트 · 프로그램2팀</span>
+                  <h3>헬게이트 VR (UE4)</h3>
+                </div>
+                <span class="period">2018.09 - 2020.10</span>
+              </div>
+              <ul>
+                <li><strong>역할:</strong> 헬게이트 VR (UE4) 프로젝트에서 클라이언트 및 플랫폼 대응 업무를 담당.</li>
+                <li><strong>핵심 업무:</strong> Blueprint 기능의 Native C++ 전환, AI 개발, 콘텐츠 최적화, PS4 배포 빌드와 PS5 업데이트 이슈를 처리.</li>
+                <li><strong>기여:</strong> 콘솔 플랫폼 대응과 콘텐츠 최적화를 통해 헬게이트 VR의 빌드 및 배포 안정성을 개선.</li>
+              </ul>
+            </section>
+
+            <section class="job">
+              <div class="job-head">
+                <div>
+                  <span class="company">한빛소프트 · 프로그램2팀</span>
+                  <h3>재난대응 시뮬레이션 A.E.R.T.S (Unity AR)</h3>
+                </div>
+                <span class="period">2018.09 - 2020.10</span>
+              </div>
+              <ul>
+                <li><strong>역할:</strong> 재난대응 시뮬레이션 A.E.R.T.S에서 Unity 기반 HoloLens AR 콘텐츠 구현을 담당.</li>
+                <li><strong>핵심 업무:</strong> HoloLens AR 콘텐츠와 오염 확산 알고리즘을 개발하고 AR 환경의 시뮬레이션 흐름을 구현.</li>
+                <li><strong>기여:</strong> AR 디바이스 환경에서 동작하는 콘텐츠 로직과 시뮬레이션 기능을 구현해 프로젝트 기반을 마련.</li>
+              </ul>
+            </section>
+
+            <section class="job">
+              <div class="job-head">
+                <div>
+                  <span class="company">위지윅스튜디오 · R&D</span>
+                  <h3>실시간 모션캡처/프리비즈 시스템 (UE4)</h3>
+                </div>
+                <span class="period">2017.06 - 2018.09</span>
+              </div>
+              <ul>
+                <li><strong>역할:</strong> UE4 기반 실시간 프리비즈 시스템에서 모션캡처와 페이셜캡처 연동을 담당.</li>
+                <li><strong>핵심 업무:</strong> 모션캡처, 페이셜캡처, iPhone X 기반 페이셜 스캔/캡처 워크플로우를 구현.</li>
+                <li><strong>기여:</strong> 실시간 촬영 데이터가 UE4 프리비즈 환경에 연동되도록 파이프라인을 구성해 제작 효율을 높임.</li>
+              </ul>
+            </section>
+
+            <section class="job">
+              <div class="job-head">
+                <div>
+                  <span class="company">노바빈 · 시스템개발</span>
+                  <h3>가상 스튜디오 빌더 및 하드웨어 연동 (UE4)</h3>
+                </div>
+                <span class="period">2016.01 - 2017.04</span>
+              </div>
+              <ul>
+                <li><strong>역할:</strong> UE4 기반 가상 스튜디오 빌더에서 외부 장비 연동과 자동화 시스템을 담당.</li>
+                <li><strong>핵심 업무:</strong> 카메라 연동, 크로마키, 이미지 프로세싱, 하드웨어 네트워크 연동 플러그인을 개발.</li>
+                <li><strong>기여:</strong> 타임라인 기반 스튜디오 자동화와 FFmpeg 영상 재생/녹화 기능을 구현해 실제 스튜디오 운영 흐름을 지원.</li>
+              </ul>
+            </section>
+
+            <section class="job">
+              <div class="job-head">
+                <div>
+                  <span class="company">락호 · 클라이언트</span>
+                  <h3>아크스톤 (Unity3D, MMORPG)</h3>
+                </div>
+                <span class="period">2015.03 - 2015.12</span>
+              </div>
+              <ul>
+                <li><strong>역할:</strong> 아크스톤 Unity3D 모바일 MMORPG에서 클라이언트 콘텐츠와 모바일 플랫폼 연동을 담당.</li>
+                <li><strong>핵심 업무:</strong> iOS/Android 네이티브 플러그인, Apple/Google/Facebook 연동, 빌드 자동화 유지보수를 수행.</li>
+                <li><strong>기여:</strong> 테이블 제너레이터 툴과 플랫폼 연동 기능을 개발해 모바일 서비스 준비와 개발 편의성을 개선.</li>
+              </ul>
+            </section>
+
+            <section class="job">
+              <div class="job-head">
+                <div>
+                  <span class="company">로드텍 · 프로그램</span>
+                  <h3>KRISS 조사관리 시스템 (C++/CUDA)</h3>
+                </div>
+                <span class="period">2011.10 - 2015.03</span>
+              </div>
+              <ul>
+                <li><strong>역할:</strong> KRISS 도로/터널 진단 장비용 C++ 기반 데이터 수집, 분석, 제어 소프트웨어를 담당.</li>
+                <li><strong>핵심 업무:</strong> 도로 포장, 터널 3D 수집, 교량/차선 조사 장비 프로그램과 CUDA 기반 이미지 프로세싱을 개발.</li>
+                <li><strong>기여:</strong> 하드웨어 제어와 대용량 영상처리 경험을 쌓아 이후 엔진/툴/성능 분석 업무의 기반을 확장.</li>
+              </ul>
+            </section>
+
+            <section class="job">
+              <div class="job-head">
+                <div>
+                  <span class="company">블루아이소프트 · 클라이언트</span>
+                  <h3>킹덤 (MMORPG, DirectX, Scaleform GFX)</h3>
+                </div>
+                <span class="period">2008.02 - 2011.09</span>
+              </div>
+              <ul>
+                <li><strong>역할:</strong> 킹덤 MMORPG 프로젝트에서 DirectX 자체 엔진 기반 클라이언트 런타임과 콘텐츠 시스템 개발을 담당.</li>
+                <li><strong>핵심 업무:</strong> MMORPG 콘텐츠 프로그램, 자체 엔진 콘텐츠 연동, Scaleform GFX 기반 ActionScript UI 작업을 수행.</li>
+                <li><strong>기여:</strong> 자체 엔진의 콘텐츠 제작 흐름과 UI 런타임을 이해하고, 엔진/콘텐츠 경계에서 기능을 구현하는 역량을 확보.</li>
+              </ul>
+            </section>
+
+            <section class="job">
+              <div class="job-head">
+                <div>
+                  <span class="company">블루아이소프트 · 클라이언트</span>
+                  <h3>애니멀 워리워즈 (액션RPG, DirectX)</h3>
+                </div>
+                <span class="period">2008.02 - 2011.09</span>
+              </div>
+              <ul>
+                <li><strong>역할:</strong> 애니멀 워리워즈 액션 RPG 프로젝트에서 DirectX 자체 엔진 기반 클라이언트와 엔진 툴 유지보수를 담당.</li>
+                <li><strong>핵심 업무:</strong> 자체 엔진 유지보수, 콘텐츠 툴 유지보수, 다국어 로컬라이징, MGame 결제 플랫폼 연동, 일본 서비스 대응을 수행.</li>
+                <li><strong>기여:</strong> 상용 서비스 운영 중 발생하는 엔진/툴/플랫폼 이슈를 처리하며 엔진 프로그래머로서의 문제 분리와 유지보수 역량을 축적.</li>
+              </ul>
+            </section>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2>Introduction</h2>
+          <div class="summary-box">
+            <p>
+              저는 게임 클라이언트 개발에서 출발해 엔진, 렌더링, 플랫폼, 빌드 환경까지 경험을 넓혀 온
+              엔진 프로그래머입니다. DirectX 자체 엔진과 Unity3D 프로젝트를 거쳐 Unreal Engine 기반 상용 프로젝트를
+              다수 경험했으며, 콘텐츠 구현뿐 아니라 엔진 업데이트, 성능 분석, 플랫폼 대응, 개발 파이프라인 개선처럼
+              프로젝트의 기반을 안정화하는 업무를 꾸준히 맡아 왔습니다.
+            </p>
+            <p>
+              최근 UE5 프로젝트에서는 엔진 버전 업그레이드, Lumen/SSGI/VSM/Nanite/HLOD 관련 렌더링 프로파일링,
+              World Partition 기반 대규모 월드 로딩, JoltPhysics 충돌 데이터 추출과 검증, 서버/클라이언트 빌드 이슈 대응,
+              DDC·Horde·Jenkins 기반 개발 인프라 개선을 수행했습니다. 문제가 발생했을 때 현상을 재현하고,
+              프로파일링과 로그를 통해 원인을 분리한 뒤, 팀이 다시 같은 문제에 묶이지 않도록 가이드와 자동화 흐름까지
+              정리하는 것을 중요하게 생각합니다.
+            </p>
+            <p>
+              또한 생성형 AI를 Unreal Engine 개발에 실전 적용하기 위해 XAMir 규약을 AI 작업 조건으로 구조화하고,
+              규약 위반을 줄이는 프로토타입 개발 흐름을 검토했습니다. 앞으로도 엔진 안정성, 렌더링 성능,
+              대규모 월드 로딩, 빌드/개발 파이프라인의 효율을 높이며 개발팀이 더 빠르고 안정적으로 콘텐츠를 만들 수 있는
+              환경을 만드는 엔진 프로그래머로 기여하고자 합니다.
+            </p>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2>Portfolio Projects</h2>
+          <p class="lead">
+            경력 항목과 연결되는 대표 프로젝트 결과물입니다. 단순 산출물 나열이 아니라 엔진/클라이언트 프로그래머로서
+            담당한 런타임 시스템, 플랫폼 대응, 콘텐츠 검증, 툴링 경험이 드러나도록 이력서 문맥에 맞춰 정리했습니다.
+          </p>
+          <div class="portfolio-list">
+            <section class="portfolio-card">
+              <div class="portfolio-card-head">
+                <div>
+                  <div class="portfolio-kind"><span>Unreal Engine 5</span><span>World System</span><span>Combat Runtime</span></div>
+                  <h3>AMir/XMir</h3>
+                </div>
+                <span class="period">UE5 월드/전투</span>
+              </div>
+              <p>UE5 기반 대규모 월드/전투 프로젝트입니다. AMir와 XMir는 월드 구성, 전투 콘텐츠, 런타임 플레이 흐름이 실제 게임 화면으로 연결된 결과물을 보여주며, 엔진/클라이언트 시스템 대응 경험과 연결됩니다.</p>
+              <ul>
+                <li>UE5 기반 월드 구성과 콘텐츠 흐름을 실제 런타임 화면으로 검증.</li>
+                <li>전투 콘텐츠, 플레이 동작, 프로젝트별 콘텐츠 검증 흐름과 연결.</li>
+                <li>월드/전투 시스템 대응, 런타임 안정성, 프로젝트 이슈 분석 역량을 뒷받침하는 결과물.</li>
+              </ul>
+              <div class="portfolio-media">
+                <button class="portfolio-video" data-preview-src="https://drive.google.com/file/d/1uI7lRG_gH9sGP2hoNTAXH77HqCFTBSHk/preview" data-title="AMir 영상" style="background-image: url('https://drive.google.com/thumbnail?id=1vexH-3T5STqXSfbTpBqrKl4mvkOBNiwO&amp;sz=w1600');" type="button"><span class="portfolio-play" aria-hidden="true"></span><span class="portfolio-label">AMir</span></button>
+                <button class="portfolio-video" data-preview-src="https://drive.google.com/file/d/1t-fe4E_0kHKxg178vFm1PQTJYwd06aa8/preview" data-title="XMir 영상" style="background-image: url('https://drive.google.com/thumbnail?id=1Ld6mzk8ig9DzDyC-kdTcExt5pAewnCoR&amp;sz=w1600');" type="button"><span class="portfolio-play" aria-hidden="true"></span><span class="portfolio-label">XMir</span></button>
+              </div>
+            </section>
+
+            <section class="portfolio-card">
+              <div class="portfolio-card-head">
+                <div>
+                  <div class="portfolio-kind"><span>Unreal Engine 4</span><span>VR Client</span><span>Console Platform</span></div>
+                  <h3>헬게이트 VR</h3>
+                </div>
+                <span class="period">UE4 VR/콘솔</span>
+              </div>
+              <p>Unreal Engine 4 기반 VR 프로젝트입니다. VR 콘텐츠가 실제 플레이 가능한 형태로 구성된 결과물을 보여주며, Blueprint 기능의 Native C++ 전환, AI 개발, 콘텐츠 최적화, PS4/PS5 플랫폼 대응 경험과 연결됩니다.</p>
+              <ul>
+                <li>UE4 기반 VR 클라이언트 시스템과 콘텐츠 동작 검증.</li>
+                <li>Blueprint 로직의 Native C++ 전환으로 런타임 안정성과 유지보수성 개선.</li>
+                <li>콘솔 배포 빌드와 플랫폼 이슈 대응 경험을 뒷받침하는 결과물.</li>
+              </ul>
+              <div class="portfolio-media">
+                <button class="portfolio-video" data-preview-src="https://drive.google.com/file/d/1qkY1VAm7DatIBFnA8-YlW3DB9kIym8_1/preview" data-title="헬게이트 VR" style="background-image: url('https://drive.google.com/thumbnail?id=1JRRzly1k1WjoAU7m-kgpcW9PC2Bibqdc&amp;sz=w1600');" type="button"><span class="portfolio-play" aria-hidden="true"></span><span class="portfolio-label">헬게이트 VR</span></button>
+              </div>
+            </section>
+
+            <section class="portfolio-card">
+              <div class="portfolio-card-head">
+                <div>
+                  <div class="portfolio-kind"><span>Unity3D</span><span>AR Simulation</span><span>HoloLens</span></div>
+                  <h3>재난대응 시뮬레이션 A.E.R.T.S</h3>
+                </div>
+                <span class="period">AR 시뮬레이션</span>
+              </div>
+              <p>Unity 기반 AR 재난대응 시뮬레이션 프로젝트입니다. AR 환경에서 재난 훈련을 게임/시뮬레이션 형태로 구성한 프로젝트이며, HoloLens AR 콘텐츠와 오염 확산 알고리즘 구현 경험과 연결됩니다.</p>
+              <ul>
+                <li>AR 디바이스 환경에서 동작하는 콘텐츠 로직과 시뮬레이션 흐름 구현.</li>
+                <li>오염 확산 알고리즘 등 규칙 기반 시뮬레이션을 사용자 경험으로 연결.</li>
+                <li>게임 클라이언트 기술을 교육/훈련 목적의 실시간 시뮬레이션에 적용.</li>
+              </ul>
+              <div class="portfolio-media">
+                <button class="portfolio-video" data-preview-src="https://drive.google.com/file/d/1U2SY3GOt9dBtdCEVTRW4nLkzETPXpfsy/preview" data-title="재난대응 시뮬레이션 A.E.R.T.S" style="background-image: url('https://drive.google.com/thumbnail?id=1BA9ifVh28o9ZxWaPtUC3psutQqlKOVe9&amp;sz=w1600');" type="button"><span class="portfolio-play" aria-hidden="true"></span><span class="portfolio-label">A.E.R.T.S</span></button>
+              </div>
+            </section>
+
+            <section class="portfolio-card">
+              <div class="portfolio-card-head">
+                <div>
+                  <div class="portfolio-kind"><span>Unity3D</span><span>Mobile MMORPG</span><span>Gameplay</span></div>
+                  <h3>아크스톤</h3>
+                </div>
+                <span class="period">모바일 MMORPG</span>
+              </div>
+              <p>Unity3D 기반 모바일 MMORPG 프로젝트입니다. 게임 인트로와 스킬 연출을 통해 캐릭터, 전투, 콘텐츠 흐름이 실제 게임 화면으로 연결된 결과물을 보여줍니다.</p>
+              <ul>
+                <li>모바일 MMORPG 클라이언트 콘텐츠와 게임플레이 시스템 구현 경험.</li>
+                <li>스킬 연출, 캐릭터 액션, UI/게임 진행 흐름을 실제 빌드 화면으로 검증.</li>
+                <li>iOS/Android 네이티브 플러그인, 플랫폼 연동, 빌드 자동화 경험과 연결되는 프로젝트.</li>
+              </ul>
+              <div class="portfolio-media">
+                <button class="portfolio-video" data-preview-src="https://drive.google.com/file/d/1cCqDdsYZcLjeli3KHCB5IdjWayzs8ctG/preview" data-title="아크스톤 인트로" style="background-image: url('https://drive.google.com/thumbnail?id=1ihLSMy3Vc8d_PpNt0YPRLqyFrxsxtz0k&amp;sz=w1600');" type="button"><span class="portfolio-play" aria-hidden="true"></span><span class="portfolio-label">아크스톤 인트로</span></button>
+                <button class="portfolio-video" data-preview-src="https://drive.google.com/file/d/1brQIG58iu6nCMcU0s3_C-21QBEAGoBvH/preview" data-title="아크스톤 스킬" style="background-image: url('https://drive.google.com/thumbnail?id=1kGFS_7iGoKEB0_NIhLbAUwexgc2PutGo&amp;sz=w1600');" type="button"><span class="portfolio-play" aria-hidden="true"></span><span class="portfolio-label">아크스톤 스킬</span></button>
+              </div>
+            </section>
+
+            <section class="portfolio-card">
+              <div class="portfolio-card-head">
+                <div>
+                  <div class="portfolio-kind"><span>C++ / CUDA</span><span>Image Processing</span><span>GIS / 3D Data</span></div>
+                  <h3>도로 조사/분석 시스템</h3>
+                </div>
+                <span class="period">분석 시스템</span>
+              </div>
+              <p>도로 포장상태, 기하구조, 시설물, 평탄성, 차선 휘도와 상태를 조사하고 분석하는 시스템입니다. 고속 조사 차량의 영상/센서 수집 모듈과 분석 프로그램을 포함하며, 대용량 데이터 수집, 이미지 프로세싱, 하드웨어 연동, 분석 툴 개발 경험을 보여줍니다.</p>
+              <ul>
+                <li>80km/h 조사속도에서 노면 영상을 연속 취득하고 이미지 프로세싱으로 파손량을 정량 분석.</li>
+                <li>관성항법장치, 레이저 센서, 거리측정기 연동으로 GPS 음영 지역에서도 기하구조 조사 지원.</li>
+                <li>GIS 맵, 360도 영상, 3D 프로파일, 결함 분석을 연동한 분석 프로그램 구성.</li>
+              </ul>
+              <div class="portfolio-media">
+                <button class="portfolio-image" data-full-src="https://drive.google.com/thumbnail?id=1BIl1-NnpE07xaoRaezTaw1eTpR1kFFup&amp;sz=w2200" type="button"><img alt="도로 조사 시스템 이미지" src="https://drive.google.com/thumbnail?id=1BIl1-NnpE07xaoRaezTaw1eTpR1kFFup&amp;sz=w2200"><span class="portfolio-label">조사 모듈</span></button>
+                <button class="portfolio-image" data-full-src="https://drive.google.com/thumbnail?id=1elELc3YR7gEDX3Ba7Z_OgZOV84Kv7Uxu&amp;sz=w2200" type="button"><img alt="도로 분석 시스템 이미지" src="https://drive.google.com/thumbnail?id=1elELc3YR7gEDX3Ba7Z_OgZOV84Kv7Uxu&amp;sz=w2200"><span class="portfolio-label">분석 프로그램</span></button>
+              </div>
+            </section>
+
+            <section class="portfolio-card">
+              <div class="portfolio-card-head">
+                <div>
+                  <div class="portfolio-kind"><span>DirectX 자체 엔진</span><span>Action RPG</span><span>Client Runtime</span></div>
+                  <h3>애니멀 워리어즈</h3>
+                </div>
+                <span class="period">액션 RPG</span>
+              </div>
+              <p>DirectX 자체 엔진 기반 액션 RPG 프로젝트입니다. 동물 캐릭터 전투와 기지 점령 플레이를 통해 자체 엔진 클라이언트 런타임, 콘텐츠 툴 유지보수, 다국어 로컬라이징, 플랫폼 연동 경험과 연결됩니다.</p>
+              <ul>
+                <li>자체 엔진 기반 클라이언트 런타임과 액션 RPG 콘텐츠 구현 경험.</li>
+                <li>콘텐츠 툴 유지보수, 로컬라이징, MGame 결제 플랫폼 연동, 일본 서비스 대응.</li>
+                <li>상용 서비스 중 발생하는 엔진/툴/플랫폼 이슈를 분리하고 대응한 기반 경험.</li>
+              </ul>
+              <div class="portfolio-media">
+                <button class="portfolio-video" data-preview-src="https://drive.google.com/file/d/1GEBUQt2vPB_dPHWjdcEGKKqYXM3Qrnvz/preview" data-title="애니멀 워리어즈" style="background-image: url('https://drive.google.com/thumbnail?id=1IKpbeKCxYbAmC3g3TG4TT_sdwz1j1uLN&amp;sz=w1600');" type="button"><span class="portfolio-play" aria-hidden="true"></span><span class="portfolio-label">애니멀 워리어즈</span></button>
+              </div>
+            </section>
+          </div>
+        </section>
+
+        <p class="footer-note">Resume updated for Engine Programmer positioning · HTML version</p>
+      </article>
+    </div>
+  </main>
+  <div aria-hidden="true" aria-label="포트폴리오 이미지 확대 보기" class="portfolio-lightbox" role="dialog">
+    <button aria-label="확대 이미지 닫기" type="button">&times;</button>
+    <img alt="">
+  </div>
+  <script>
+    const makePortfolioAutoplayUrl = (src) => {
+      const url = new URL(src);
+      url.searchParams.set("autoplay", "1");
+      return url.toString();
+    };
+
+    document.querySelectorAll(".portfolio-video").forEach((button) => {
+      button.addEventListener("click", () => {
+        const iframe = document.createElement("iframe");
+        iframe.src = makePortfolioAutoplayUrl(button.dataset.previewSrc);
+        iframe.title = button.dataset.title || "Project video";
+        iframe.allow = "autoplay; fullscreen";
+        iframe.allowFullscreen = true;
+        button.replaceWith(iframe);
+      });
+    });
+
+    const portfolioLightbox = document.querySelector(".portfolio-lightbox");
+    const portfolioLightboxImage = portfolioLightbox?.querySelector("img");
+    const portfolioLightboxClose = portfolioLightbox?.querySelector("button");
+
+    const closePortfolioLightbox = () => {
+      if (!portfolioLightbox || !portfolioLightboxImage) {
+        return;
+      }
+      portfolioLightbox.classList.remove("is-open");
+      portfolioLightbox.setAttribute("aria-hidden", "true");
+      portfolioLightboxImage.removeAttribute("src");
+      portfolioLightboxImage.alt = "";
+    };
+
+    document.querySelectorAll(".portfolio-image").forEach((button) => {
+      button.addEventListener("click", () => {
+        if (!portfolioLightbox || !portfolioLightboxImage) {
+          return;
+        }
+        const image = button.querySelector("img");
+        portfolioLightboxImage.src = button.dataset.fullSrc || image.src;
+        portfolioLightboxImage.alt = image.alt;
+        portfolioLightbox.classList.add("is-open");
+        portfolioLightbox.setAttribute("aria-hidden", "false");
+      });
+    });
+
+    portfolioLightbox?.addEventListener("click", (event) => {
+      if (event.target === portfolioLightbox) {
+        closePortfolioLightbox();
+      }
+    });
+
+    portfolioLightboxClose?.addEventListener("click", closePortfolioLightbox);
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        closePortfolioLightbox();
+      }
+    });
+  </script>
+</body>
+</html>
